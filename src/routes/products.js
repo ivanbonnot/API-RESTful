@@ -1,27 +1,6 @@
-const express = require('express');
-const app = express();
-const Contenedor = require('./contenedor.js');
-const productos = new Contenedor('productos.txt')
 
-app.get('/', (_, response) => {
-    response.send(`<h1>Hello world</h1>`)
-})
-
-app.get('/productos', (_, response) => {
-    response.send(allTheProducts());
-});
-
-app.get('/productosRandom', (_, response) => {
-    response.send(productById());
-});
-
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Listening in port ${PORT}`))
-
-
-
-
-
+const Contenedor = require('../contenedor.js');
+const productos = new Contenedor('../productos.txt')
 
 const allTheProducts = async () => {
     try {
