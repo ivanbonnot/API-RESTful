@@ -1,3 +1,4 @@
+const morgan = require('morgan');
 const express = require('express');
 const app = express();
 
@@ -7,8 +8,9 @@ app.set('json spaces', 2)
 
 //Middlewares
 app.use(morgan('dev'))
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(express.static('public'))
 
 //Starting the server
 app.listen(app.get('port'), () => {
@@ -16,19 +18,8 @@ app.listen(app.get('port'), () => {
 });
 
 //Routes
-
-
-app.get('/', (_, response) => {
-    response.send(`<h1>Hello world</h1>`)
-})
-
-app.get('/productos', (_, response) => {
-    response.send(allTheProducts());
-});
-
-app.get('/productosRandom', (_, response) => {
-    response.send(productById());
-});
+app.use('/api/',require('./routes/index'))
+app.use('/api/productos',require('./routes/products'))
 
 
 
