@@ -28,10 +28,10 @@ class Contenedor {
     }
 
 
-    async saveFile(file, productos) {
+    async saveFile( productos) {
         try {
             await fs.promises.writeFile(
-                file, JSON.stringify(productos, null, 2)
+                this.file, JSON.stringify(productos, null, 2)
             )
         } catch (err) {
             console.log(`Error: ${err}`)

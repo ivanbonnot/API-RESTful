@@ -21,10 +21,10 @@
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, veritatis?"
   },
   {
-    "id": 5,
+    "id": 4,
     "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/916/671/products/39492a20-cb07-453b-b773-cf33f3ad6a221-234c84a1749adadbfe16049644061194-1024-1024.jpeg",
-    "title": "Impresora 3D r 3 Pro",
-    "price": "200",
-    "description": "Lorem ipsum dolorelit. Nesciunt, veritatis?"
+    "title": "Impresora sdgsdfhdfj",
+    "price": "20",
+    "description": "Lorem ipsum , veritatis?"
   }
 ]

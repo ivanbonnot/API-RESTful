@@ -1,4 +1,4 @@
-const { Router, response } = require('express')
+const { Router } = require('express')
 const router = new Router()
 
 const Contenedor = require('../contenedor.js');
@@ -24,8 +24,6 @@ router.get('/:id', async (req, response) => {
     } else {
         response.status(404).send({ error: 'Product not found' })
     }
-
-
 })
 
 
@@ -44,27 +42,43 @@ router.post('/', async (req, response) => {
         response.send('Invalido, todos los campos son obligatorios')
 
     }
-
 })
 
 
+ router.put('/:id', async (req, res) => {
+
+     const id = Number(req.params.id)
+     const { image, title, price, description } = req.body
+    
+     if (await productos.getById(id) && (image && title && price && description)) {
+         let allProducts = await productos.getAll()
+         allProducts[id - 1] = { "id": id, ...req.body }
+         productos.saveFile(allProducts)
+         res.send( req.body )
+
+     } else {
+         res.status(404).send({ error: 'id invalid / missing fields' })
+
+     }
+ })
+
+
+
+
 router.delete('/:id', async (req, response) => {
+
     const { id } = req.params
     const deleteProdById = await productos.getById(parseInt(id))
 
     if (deleteProdById) {
         await productos.deleteById(parseInt(id))
-        response.send({deleted: deleteProdById})
+        response.send({ deleted: deleteProdById })
 
     } else {
         response.status(404).send({ error: 'Product not found' })
+
     }
-
 })
-
-
-
-
 
 
 module.exports = router;
