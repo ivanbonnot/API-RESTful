@@ -26,5 +26,19 @@
     "title": "Impresora sdgsdfhdfj",
     "price": "20",
     "description": "Lorem ipsum , veritatis?"
+  },
+  {
+    "id": 5,
+    "title": "sdg",
+    "price": "3000",
+    "image": "dfjhdjfg",
+    "description": "kkkkkkkkkkkkkk"
+  },
+  {
+    "id": 6,
+    "title": "sdg",
+    "price": "3000",
+    "image": "dfjhdjfg",
+    "description": "kkkkkkkkkkkkkk"
   }
 ]

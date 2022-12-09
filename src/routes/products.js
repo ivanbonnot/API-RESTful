@@ -2,7 +2,7 @@ const { Router } = require('express')
 const router = new Router()
 
 const Contenedor = require('../contenedor.js');
-const productos = new Contenedor('./productos.txt')
+const productos = new Contenedor('productos.txt')
 
 
 router.get('/', async (req, response) => {
@@ -32,11 +32,10 @@ router.post('/', async (req, response) => {
     const { image, title, price, description } = req.body
 
     if (image && title && price && description) {
-        const id = ((await productos.getAll()).length) + 1
-        const newProduct = { ...req.body, id }
-        await productos.save(newProduct)
-        const productById = await productos.getById(id)
-        response.json(productById)
+        await productos.save(req.body)
+        // const productById = await productos.getById(id)
+        const allProd = await productos.getAll()
+        response.json(allProd)
 
     } else {
         response.send('Invalido, todos los campos son obligatorios')

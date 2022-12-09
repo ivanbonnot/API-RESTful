@@ -10,7 +10,7 @@ app.set('json spaces', 2)
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 //Starting the server
 app.listen(app.get('port'), () => {
@@ -18,7 +18,6 @@ app.listen(app.get('port'), () => {
 });
 
 //Routes
-app.use('/api/',require('./routes/index'))
 app.use('/api/productos',require('./routes/products'))
 
 

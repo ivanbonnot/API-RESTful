@@ -19,7 +19,7 @@ class Contenedor {
 
             const prodNuevo = { id: idGen, ...product }
             productos.push(prodNuevo)
-            await this.saveFile(this.file, productos)
+            await this.saveFile(productos)
             return idGen
 
         } catch (err) {
@@ -49,7 +49,7 @@ class Contenedor {
             console.log(`Error: ${err}`)
         }
     }
-
+    
 
     async getAll() {
         try {
